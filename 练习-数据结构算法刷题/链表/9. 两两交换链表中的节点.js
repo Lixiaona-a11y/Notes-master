@@ -1,6 +1,9 @@
 function swapPairs (head) {
 // base case
-	if(head.next === null) {
+    if(!head){
+		return null;
+	}
+	if(!head.next) {
 		return head;
 	}
 	let firstNode = head;

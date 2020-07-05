@@ -1,16 +1,17 @@
-function selection(a) {
-  const len = a.length;
-  let temp,
-      minIndex = -1;
-  for(let i = 0;i < len - 1;i++){ // 找到最小每轮最小元素索引
-    minIndex = i
-    for(let j = i+1;j < len;j++) {
-      minIndex = a[j] < a[minIndex] ? j : minIndex
+function selectionSort(arr){
+    let minIndex;
+    for(let i=0;i<arr.length-1;i++){
+        minIndex=i;
+        for(let j=i+1;j<arr.length;j++){
+            if(arr[j]<arr[minIndex]){
+                minIndex=j;
+            }
+        }
+        if(minIndex!==i){
+            [arr[i],arr[minIndex]]=[arr[minIndex],arr[i]];
+        }
     }
-  // swap
-    temp = a[i]
-    a[i] = a[minIndex]
-    a[minIndex] = a[i]
-  }
-  return a
+    return arr;
 }
+var array=[2,4,4,1,6,7,2,1];
+console.log(selectionSort(array))
