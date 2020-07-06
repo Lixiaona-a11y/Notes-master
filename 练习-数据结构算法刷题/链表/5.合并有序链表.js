@@ -1,3 +1,4 @@
+//Leetcode 21
 function merge (l1,l2) {
 	// 有空的情况下不做处理
 	if(!l1 || !l2){

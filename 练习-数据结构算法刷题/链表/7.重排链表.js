@@ -36,7 +36,7 @@ function reorderList (head) {
         linklistB = Bnext;
     }
     return dummyHead.next;
-    function resvse(node) {
+    function reverse(node) {
         // base case
         if(!node || !node.next) {
             return node;

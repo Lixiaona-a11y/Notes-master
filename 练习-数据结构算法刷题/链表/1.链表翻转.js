@@ -38,3 +38,18 @@ function reverseLinkList(node) {
   node.next = null;
   return newHead
 }
+
+var obj3 = {
+  name:'obj3',
+  next:null
+}
+var obj2 = {
+  name:'obj2',
+  next:obj3
+}
+var obj1 = {
+  name:'obj1',
+  next:obj2
+}
+
+console.log(reverse(obj1));
