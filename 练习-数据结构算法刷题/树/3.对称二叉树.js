@@ -20,7 +20,7 @@ function isSymmetic (root) {
     if(!root) {
         return true;
     }
-    return helper(root,root);
+    return helper(root.left,root.left);
 }
 function helper (left,right) {
     if (!left && !right) {
@@ -29,7 +29,7 @@ function helper (left,right) {
     if (!left || !right) {
         return false;
     }
-    if (left.value !== right.value) {
+    if (left.val !== right.val) {
         return false;
     }
     // 必须左边的左 和 右边的右 相等，<且> 左边的右 和 右边的左 相等 才满足。

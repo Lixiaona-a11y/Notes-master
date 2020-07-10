@@ -70,6 +70,7 @@ var levelOrder = function (root) {
     for (let i = 0; i < len; i++) {
       // 从左按顺序取，如果是从右到左打印，则pop
       cur = _q.shift();
+      if(!cur) return [];
       temp.push(cur.val)
       // expand操作
       _q.push(...cur.children);
