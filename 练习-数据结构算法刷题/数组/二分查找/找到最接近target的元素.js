@@ -8,7 +8,7 @@ function binarySearch(arr,target) {
       mid;
   while(left + 1 < right) {
     mid = left + Math.floor((right - left) / 2);
-    if(arr[mid] === target) {
+    if(arr[mid] === target) {zhaod
       return mid;
     }else if(arr[mid] > target) {
       right = mid;

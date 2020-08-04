@@ -8,7 +8,7 @@
 /**
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
- */
+ *///方法一：
 // i 和 j 挡板
 // j 挡板 的物理意义：以左是非0 元素
 // i 挡板 的物理意义：遍历数组，遇到非0元素停下，和 j 当前元素swap 保证j 非0 同时j向前一步走
@@ -29,3 +29,15 @@ var moveZeroes = function(nums) {
 	}
 };
 // @lc code=end
+
+
+//方法二：
+var moveZeroes = function(nums) {
+    for(let i=nums.length-1;i>=0;i--){
+        if(nums[i]===0){
+            nums.splice(i,1);
+            nums.push(0);
+        }
+    }
+    return nums;
+};
