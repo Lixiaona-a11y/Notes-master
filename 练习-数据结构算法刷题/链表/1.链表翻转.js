@@ -5,7 +5,7 @@
 */
 function reverse(Linked) {
   if (Linked == null || Linked.next === null) {
-    return;
+    return Linked;
   }
   var prev = null,
       cur = Linked;
@@ -31,7 +31,7 @@ function reverseLinkList(node) {
     return node;
   }
   // 拿到 newHead 也就是链表的尾巴，需要保存当前的位置指针，作为返回值，使得能够拿到正确的链表头部
-  var newHead = reverseLinkList(node.head);
+  var newHead = reverseLinkList(node.next);
   // 一步一步的翻转
   node.next.next = node;
   // 置空防止循环指向
@@ -52,4 +52,4 @@ var obj1 = {
   next:obj2
 }
 
-console.log(reverse(obj1));
+console.log(reverseLinkList(obj1));

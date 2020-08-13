@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./MyPromise.js"></script>
+    <script>
+        new MyPromise((resolve,reject)=>{
+            setTimeout(function(){
+                resolve(1);
+                reject("error~~~");
+            },1000);
+        }).then(res=>{
+            return new MyPromise((resolve,reject)=>{
+                setTimeout(function(){
+                    console.log(res);
+                    resolve(res+2);
+                },2000)
+            })
+        },console.log("haha")).then(res=>{
+            console.log(res);
+        },err=>{
+            console.log(err);
+        })
+    </script>
+</body>
+</html>
