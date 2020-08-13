@@ -1,44 +1,41 @@
-/**
- * 1.新建XHR对象
- * 2.注册相关事件处理回调函数
- * 3.预准备请求
- * 4.配置额外参数
- * 5.发送请求
- */
+// ajax请求步骤：
+// 1.实例化XMLHttpRequest对象
+// 2.发送请求
+// 3.结束
+function ajax(options){
+  let method=options.method||"GET",//请求方式，不传则默认GET请求
+      params=options.params,//GET请求携带的参数
+      data=options.data,//POST请求传递的参数
+      url=options.url+(params?'?'+Object.keys(params).map(key=>key+'='+params[key]).join('&'):""),
+      async=options.async===false?false:true;
+      success=options.success,
+      headers=options.headers;
 
-function getWebData(url) {
-  let xhr = new XMLHttpRequest()
-  xhr.onreadystatechange = function () {
-    switch (xhr.readyState) {
-      case 0:
-        console.log('请求未初始化')
-        break;
-      case 1:
-        console.log('以创建请求')
-        break;
-      case 2:
-        console.log('请求已确认')
-        break;
-      case 3:
-        console.log('正在接受数据')
-        break;
-      case 4:
-        console.log('数据全部接受完毕')
-        break;
+  let xhr;
+  // 创建xhr对象
+  if(window.XMLHttpRequest){
+    xhr=new XMLHttpRequest();
+  }else{
+    xhr=new ActiveXObject();
+  }
+
+//   readyState的五种状态详解：
+// 0 － （未初始化）还没有调用send()方法
+// 1 － （载入）已调用send()方法，正在发送请求
+// 2 － （载入完成）send()方法执行完成，已经接收到全部响应内容
+// 3 － （交互）正在解析响应内容
+// 4 － （完成）响应内容解析完成，可以在客户端调用了
+  xhr.onreadystatechange=function(){
+    if(xhr.readyState===4&&xhr.status===200){
+      sccess&&success(xhr.responseText);
     }
   }
-  xhr.ontimeout=function (e) {
-    console.log('ontimeout',e);
-  }
-  xhr.onerror=function (e) {
-    console.log('onerror',e)
-  }
-  xhr.open('GET',url,true);
-  xhr.timeout=3000; // 设置xhr请求超时事件
-  xhr.responseType='text'; //设置响应返回的数据类型
-  // 常见的有 "document" , "json" , "text" "arraybuffer"
 
-  //可以设置额外的请求头
-  xhr.setRequestHeader(my_header,'xxx');
-  xhr.send(null)
+  xhr.open(method,url,async);
+
+  if(headers){
+    Object.keys(headers).forEach(key=>xhr.setRequestHeader(key,headers[key]));
+  }
+
+  method==="GET"?xhr.send():xhr.send(data);
 }

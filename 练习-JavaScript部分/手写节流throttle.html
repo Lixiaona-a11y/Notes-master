@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button type="button" id="button">加1</button>
+    <span id="num">0</span>
+    <script>
+        function throttle(fn,delay=500){
+            let flag=true;
+            return (...args)=>{
+                if(!flag) return;
+                flag=false;
+                setTimeout(()=>{
+                    fn.apply(this,args);
+                    flag=true;
+                },delay);
+            }
+        }
+        var button = document.getElementById('button');
+        var numSpan = document.getElementById('num');
+        var num = 0;
+        function handle() {
+            numSpan.innerText=++num;
+        }
+        button.addEventListener('click',throttle(handle,2000));
+    </script>
+</body>
+
+</html>
