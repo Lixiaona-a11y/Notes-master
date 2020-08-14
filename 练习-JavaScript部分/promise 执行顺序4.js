@@ -25,27 +25,3 @@ p1.then(function(value){
   console.log('p1=' + value);
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
