@@ -20,7 +20,7 @@ var levelOrder = function(root) {
       curNode = _q.shift();
       res[level].push(curNode.val);
       curNode.left && _q.push(curNode.left)
-      curNode.right && _q.push(curNode.rig ht)
+      curNode.right && _q.push(curNode.right)
     }
     // 逆序
     if(level % 2 === 0) res[level++].reverse();

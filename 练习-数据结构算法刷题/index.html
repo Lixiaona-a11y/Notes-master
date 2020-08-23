@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var permuteUnique = function(nums) {
+    let n = nums.length;
+    nums = nums.sort((a,b) => {return a - b});
+    let res = [];
+    let tmpPath = [];
+    let hash = {};
+    let backtrack = (tmpPath) => {
+        if(tmpPath.length == n){
+            res.push(tmpPath);
+            debugger;
+            return;
+        }
+        for(let i = 0;i < n;i++){
+            if(hash[i] || (i > 0 && !hash[i-1] && nums[i-1] == nums[i])) continue;
+            debugger;
+            hash[i] = true;
+            tmpPath.push(nums[i]);
+            debugger;
+            backtrack(tmpPath.slice());
+            hash[i] = false;
+            tmpPath.pop();
+            debugger;
+        }
+    }
+    backtrack(tmpPath);
+    return res;
+};
+var num=[1,1,2];
+console.log(permuteUnique(num));
+    </script>
+</body>
+
+</html>

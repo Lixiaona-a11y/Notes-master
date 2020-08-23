@@ -3,15 +3,17 @@
  * @param {*} root 
  */
 var mirrorTree = function(root) {
-  if(!root) {
-    return null;  
-  }
-  // swap 
-  var tempVal = root.left.val;
-  root.left.val = root.right.val;
-  root.right.val = tempVal;
-  // 递归左右子树
-  mirrorTree (root.left);
-  mirrorTree (root.right);
-  return root;
+  if (!root) {
+    return null;
+}
+// 交换当前节点的左右节点
+const leftCopy = root.left;
+root.left = root.right;
+root.right = leftCopy;
+
+// 对左右子树做相同操作
+mirrorTree(root.left);
+mirrorTree(root.right);
+
+return root;
 };
