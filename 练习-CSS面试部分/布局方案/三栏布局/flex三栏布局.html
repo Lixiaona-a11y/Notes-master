@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+        }
+        
+        .left,
+        .middle,
+        .right {
+            height: 200px;
+        }
+        
+        .left {
+            width: 200px;
+            background-color: green;
+        }
+        
+        .middle {
+            width: 100%;
+            background-color: red;
+            flex: 1;
+        }
+        
+        .right {
+            width: 300px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left">left</div>
+        <div class="middle">middle</div>
+        <div class="right">right</div>
+    </div>
+</body>
+
+</html>

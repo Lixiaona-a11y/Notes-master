@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main {
+            width: 100px;
+            height: 200px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main"></div>
+    <script>
+        // 描述
+        // Math.random（）
+        // 返回0和1之间的伪随机数，可能为0，但总是小于1，[0,1)
+        // toString（16）
+        // 将随机数转换为16进制的字符串。
+        // substring（2,6）
+        // 截取指定数目的字符，因为随机数大于等于0小于1，所以前两位是“0.”，故以下标2为起点开始截取。
+        function randomHexColor() {
+            var hex = '#' + Math.random().toString(16).substr(2, 6);
+            return hex;
+        }
+        let randomColor = randomHexColor();
+        document.getElementById('main').style.backgroundColor = `${randomColor}`;
+    </script>
+</body>
+
+</html>

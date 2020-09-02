@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {}
+        
+        .middle,
+        .left,
+        .right {
+            height: 200px;
+            float: left;
+        }
+        
+        .middle {
+            width: 100%;
+            background-color: red;
+        }
+        
+        .left {
+            width: 200px;
+            background-color: yellow;
+            margin-left: -100%;
+        }
+        
+        .right {
+            width: 300px;
+            background-color: green;
+            margin-left: -300px;
+        }
+        
+        .inner {
+            margin-left: 200px;
+            margin-right: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="middle">
+            <div class="inner">
+                middle
+            </div>
+        </div>
+        <div class="left">left</div>
+        <div class="right">right</div>
+    </div>
+</body>
+
+</html>

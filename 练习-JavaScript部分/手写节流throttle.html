@@ -11,24 +11,26 @@
     <button type="button" id="button">加1</button>
     <span id="num">0</span>
     <script>
-        function throttle(fn,delay=500){
-            let flag=true;
-            return (...args)=>{
-                if(!flag) return;
-                flag=false;
-                setTimeout(()=>{
-                    fn.apply(this,args);
-                    flag=true;
-                },delay);
+        function throttle(fn, delay = 500) {
+            let flag = true;
+            return (...args) => {
+                if (!flag) return;
+                flag = false;
+                setTimeout(() => {
+                    fn.apply(this, args);
+                    flag = true;
+                }, delay);
             }
         }
+
         var button = document.getElementById('button');
         var numSpan = document.getElementById('num');
         var num = 0;
+
         function handle() {
-            numSpan.innerText=++num;
+            numSpan.innerText = ++num;
         }
-        button.addEventListener('click',throttle(handle,2000));
+        button.addEventListener('click', throttle(handle, 2000));
     </script>
 </body>
 
