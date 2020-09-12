@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main1 {
+            width: 200px;
+            height: 400px;
+            border: 1px solid #ccc;
+        }
+        
+        .main2 {
+            width: 200px;
+            height: 400px;
+            border: 1px solid #ccc;
+            word-break: break-all;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 中文字符 -->
+    <div class="main1">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</div>
+    <!-- 英文字符 -->
+    <!-- 英文字符串不能处理自动换行，而汉字字符却可以自动换行 -->
+    <!-- 原因：英文字母之间如果没有空格，系统认为是一个单词，就不会自动换行，汉字就没有这种情况 -->
+    <div class="main2">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+</body>
+
+</html>

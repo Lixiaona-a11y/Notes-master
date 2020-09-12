@@ -1,3 +1,4 @@
+// js实现一个堆栈，入栈、出栈。获取当前栈内最大值，要求时间复杂度为O1 
 // push：只能push数字，否则报错
 // pop
 // maxN:第N大的数，时间复杂度O(1)
@@ -44,5 +45,4 @@ numStack.push(1);
 numStack.push(7);
 numStack.push(4);
 console.log(numStack);
-console.log(numStack.maxN(2));
-console.log(numStack);
+console.log(numStack.maxN(1));
