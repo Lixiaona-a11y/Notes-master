@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="search" placeholder="请输入关键词" />
+    <div id="show"></div>
+    <script>
+        var keyWord = ['123', '223', '234', '345'];
+        var search = document.getElementById('search');
+        var show = document.getElementById('show');
+
+        function debounce(fn, delay) {
+            var timer = null;
+            return function() {
+                if (timer) clearTimeout(timer);
+                timer = setTimeout(fn, delay);
+            }
+        }
+
+        function getWord() {
+            let value = search.value;
+            var result = [];
+            if (value) {
+                let reg = new RegExp(value);
+                result = keyWord.filter(item => {
+                    return reg.test(item);
+                })
+            }
+            if (result.length) {
+                result = result.reduce((a, b) => {
+                    return a + '\n' + b;
+                }, '')
+                show.innerText = result;
+                show.style.display = 'block';
+            } else {
+                show.innerText = '';
+                show.style.display = 'none';
+            }
+        }
+
+        search.addEventListener('keyup', debounce(getWord, 500));
+    </script>
+
+</body>
+
+</html>

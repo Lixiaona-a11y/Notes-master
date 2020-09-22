@@ -1,19 +1,24 @@
-function Parent(name) {
-  this.name = ['foo','bar'];
-}
-Parent.prototype.baz = function logFunc(params) {
-  console.log('能够使用');
-}
-function Child() {
-  
-}
-// Child想要继承Parent 通过原型链继承
-Child.prototype = new Parent();
-var child1 = new Child()
 /**
  * 存在的问题：
  * 
- * - 引用值共享
+ * - 引用值共享,(改变了一个实例对象，另一个实例对象也跟着改变)
  * - 创建子类时无法向Parent传递参数
  */
+function Parent1() {
+    this.name = 'parent1';
+    this.play = [1, 2, 3];
+}
 
+function Child1() {
+    this.type = 'child1';
+}
+
+Child1.prototype = new Parent1();
+Child1.prototype.constructor = Child1;
+
+var s1 = new Child1();
+var s2 = new Child1();
+
+s1.play.push(4);
+
+console.log(s1.play, s2.play);
