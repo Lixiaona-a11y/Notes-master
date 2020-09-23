@@ -10,4 +10,4 @@ console.log(result2);
 
 // 3.匹配完整标签
 var result3 = str.match(/<[A-z].*?>.*?<\/.*?>/g);
-console.log(result);
+console.log(result3);
