@@ -8,24 +8,22 @@
  */
 function getMax(str) {
     let map = new Map(),
-        max = 0,
-        maxOne,
-        res = [];
-    for (let s of str) {
-        if (!map.has(s)) {
-            map.set(s, 1);
+        res = [],
+        maxCount = 0;
+    for (let i = 0; i < str.length; i++) {
+        if (!map.has(str[i])) {
+            map.set(str[i], 1);
         } else {
-            map.set(s, map.get(s) + 1);
+            map.set(str[i], map.get(str[i]) + 1);
+        }
+    }
+    for (let val of map.values()) {
+        if (maxCount < val) {
+            maxCount = val;
         }
     }
     for (let key of map.keys()) {
-        if (max < map.get(key)) {
-            max = map.get(key);
-            maxOne = key;
-        }
-    }
-    for (let key of map.keys()) {
-        if (map.get(key) === max) {
+        if (map.get(key) === maxCount) {
             res.push(key);
         }
     }
